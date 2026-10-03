@@ -1,0 +1,6 @@
+pandas>=2.0
+matplotlib>=3.7
+selenium>=4.20
+webdriver-manager>=4.0
+jupyter>=1.0
+
