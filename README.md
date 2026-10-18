@@ -150,6 +150,20 @@ After running the analysis, check that:
 
 Results from a fresh scrape may differ if the practice website changes.
 
+## Automated Data Validation
+
+This repository includes automated data-quality tests using Python's `unittest` framework and GitHub Actions.
+
+The validation suite checks source-data integrity, expected record counts, empty datasets, and duplicate quote records.
+
+Tests run automatically when changes are pushed to the repository or a pull request is opened.
+
+**Validation status:** GitHub Actions workflow successfully executed.
+
+To run the tests locally:
+
+`python -m unittest discover -v`
+
 
 ## Responsible-use note
 
