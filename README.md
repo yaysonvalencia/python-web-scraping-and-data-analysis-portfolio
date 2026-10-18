@@ -31,6 +31,31 @@ Selected results after cleaning:
 
 ![Book records by category](category_summary.png)
 
+
+## Technical Workflow
+
+The portfolio contains two complementary Python workflows: structured data preparation and browser-based data collection.
+
+```mermaid
+flowchart TD
+    A["Python Analytics Portfolio"]
+    A --> B["Book Catalog Analysis"]
+    A --> C["Dynamic Web Scraping"]
+
+    B --> D["CSV Input: 105 Records"]
+    D --> E["pandas Cleaning & Type Conversion"]
+    E --> F["Missing-Value Treatment & Validation"]
+    F --> G["Category Analysis & Visualization"]
+
+    C --> H["Selenium Browser Automation"]
+    H --> I["JavaScript Content Loading"]
+    I --> J["Quote & Author Extraction"]
+    J --> K["CSV Export"]
+    K --> L["Exploratory Analysis & Visualization"]
+```
+
+
+
 ### Dynamic web scraping
 
 The Selenium workflow opens a JavaScript-rendered practice site, scrolls to load additional content, extracts quote text and author names, and exports the results to CSV.
@@ -55,14 +80,76 @@ The supplied output contains:
 | `category_summary.png` and `top_authors.png` | Portfolio-ready analytical charts |
 | `requirements.txt` | Python dependencies |
 
-## Run locally
 
-1. Create and activate a Python environment.
-2. Install dependencies with `pip install -r requirements.txt`.
-3. Open `python_web_scraping_analysis.ipynb` in Jupyter or upload it to Google Colab.
-4. Run the notebook from top to bottom.
+## Run Locally
 
-The notebook analyzes the included CSV files without requiring a fresh scrape. Run `python scrape_quotes.py` only when you intentionally want to recollect the public practice-site content.
+### 1. Set up the Python environment
+
+Python 3.10 or newer is recommended.
+
+Clone the repository:
+
+```bash
+git clone https://github.com/yaysonvalencia/python-web-scraping-and-data-analysis-portfolio.git
+cd python-web-scraping-and-data-analysis-portfolio
+```
+
+Create a virtual environment:
+
+```bash
+python -m venv .venv
+```
+
+Activate it:
+
+**Windows**
+```powershell
+.venv\Scripts\activate
+```
+
+**macOS / Linux**
+```bash
+source .venv/bin/activate
+```
+
+Install dependencies:
+
+```bash
+python -m pip install -r requirements.txt
+```
+
+### 2. Run the analysis
+
+Launch Jupyter:
+
+```bash
+jupyter notebook
+```
+
+Open `python_web_scraping_analysis.ipynb` and run all cells in order.
+
+The notebook uses the included CSV files, so a fresh web scrape is not required.
+
+### 3. Run the Selenium scraper (optional)
+
+```bash
+python scrape_quotes.py
+```
+
+The scraper requires a compatible browser and browser automation setup. Selenium may manage browser drivers automatically, depending on your environment.
+
+### 4. Verify the results
+
+After running the analysis, check that:
+
+- The book dataset contains 105 records.
+- Required analytical fields have no remaining null values.
+- The cleaned dataset includes six category labels.
+- The quote analysis reads the included `quotes.csv` file.
+- Both analytical charts render successfully.
+
+Results from a fresh scrape may differ if the practice website changes.
+
 
 ## Responsible-use note
 
